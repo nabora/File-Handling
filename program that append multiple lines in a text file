@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main ()
+{
+  FILE * fp;
+  int i,n;
+  char str[100];
+  
+  
+    fp = fopen("C:\text.txt", "a"); 
+    printf("Input how many lines to be appended: ");
+    scanf("%d", &n);
+    for(i = 0; i < n+1;i++)
+    {
+    fgets(str, sizeof str, stdin);
+    fputs(str, fp);
+  }
+  fclose (fp);
+  
+  return 0;
+}
