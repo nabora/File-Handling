@@ -1,0 +1,86 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    FILE * fptr;
+    
+    char stdnt_name1[200], stdnt_name2[200];
+    int id_num1, math1, science1, english1;
+    int id_num2, math2, science2, english2;
+    int sum1 = 0, sum2 = 0, avg1 = 0, avg2 = 0;
+    
+    //Student 1 Data
+    
+    fptr = fopen("file1.txt", "w");
+    {
+    if(fptr==NULL)
+    {
+        printf("Error in opening file!");
+        return 0;
+    }
+    
+
+    printf("Student Name: ");
+    scanf("%s",stdnt_name1);
+    printf("ID Nunmber:");
+    scanf("%d", &id_num1);
+    printf("Math Grade:");
+    scanf("%d", &math1);
+    printf("Science Grade:");
+    scanf("%d", &science1);
+    printf("English Grade:");
+    scanf("%d", &english1);
+    
+    
+    fprintf(fptr, "Student Name: %s", stdnt_name1);
+    fprintf(fptr, "\nID Number: %d", id_num1);
+    fprintf(fptr, "\nMath Grade: %d", math1);
+    fprintf(fptr, "\nScience Grade: %d", science1);
+    fprintf(fptr, "\nEnglish Grade: %d", english1);
+    sum1 = math1 + science1 + english1;
+    fprintf(fptr,"\nTotal Grade: %d", sum1);
+    avg1 = (math1 + science1 + english1)/3;
+    fprintf(fptr,"\nGrade Average: %d", avg1);
+           
+    fclose(fptr);
+    
+    
+    //Student 2 data
+    
+    fptr = fopen("file2.txt", "w+");
+    {
+    if(fptr==NULL)
+    {
+        printf("Error in opening file!");
+        return 0;
+    }
+    
+    printf("\nStudent Name: ");
+    scanf("%s",stdnt_name2);
+    printf("ID Nunmber: ");
+    scanf("%d", &id_num2);
+    printf("Math Grade: ");
+    scanf("%d", &math2);
+    printf("Science Grade: ");
+    scanf("%d", &science2);
+    printf("English Grade: ");
+    scanf("%d", &english2);
+    
+    
+    fprintf(fptr, "Student Name: %s", stdnt_name2);
+    fprintf(fptr, "\nID Number: %d", id_num2);
+    fprintf(fptr, "\nMath Grade: %d", math2);
+    fprintf(fptr, "\nScience Grade: %d", science2);
+    fprintf(fptr, "\nEnglish Grade: %d", english2);
+    sum2 = math2 + science2 + english2;
+    fprintf(fptr,"\nTotal Grade: %d", sum2);
+    avg2 = (math2 + science2 + english2)/3;
+    fprintf(fptr,"\nGrade Average: %d", avg2);
+            
+
+     fclose(fptr);
+            
+            
+    return 0;
+}}}
